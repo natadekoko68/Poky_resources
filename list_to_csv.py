@@ -14,7 +14,7 @@ def get_num(x):
 
 def list_to_csv(input_file, output_file = None):
     if output_file == None:
-        input_file.replace(".list", ".csv")
+        output_file = input_file.replace(".list", ".csv")
     pattern = r"^\s*(\S+)\s+([\d.]+)\s+([\d.]+)\s+([\d]+)\s+([\d]+)"
 
     rows = []
