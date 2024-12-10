@@ -23,7 +23,7 @@ def list_to_csv(input_file, destination = input_file.replace(".list", ".csv")):
             match = re.match(pattern, line)
             if match:
                 assignment, w1, w2, data_height, sn = match.groups()
-                rows.append([assignment.split("_")[0], float(w1), float(w2), int(data_height), int(sn),assignment])
+                rows.append([assignment.split("-")[0], float(w1), float(w2), int(data_height), int(sn),assignment])
 
     with open(output_file, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
