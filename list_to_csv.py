@@ -12,7 +12,7 @@ def get_num(x):
     else:
         return int(ret[0])
 
-def list_to_csv(input_file, destination = input_file.replace(".list", ".csv")):
+def list_to_csv(input_file, output_file = input_file.replace(".list", ".csv")):
 
     pattern = r"^\s*(\S+)\s+([\d.]+)\s+([\d.]+)\s+([\d]+)\s+([\d]+)"
 
