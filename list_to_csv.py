@@ -12,8 +12,7 @@ def get_num(x):
     else:
         return int(ret[0])
 
-def list_to_csv(input_file):
-    output_file = input_file.replace(".list", ".csv")
+def list_to_csv(input_file, destination = input_file.replace(".list", ".csv")):
 
     pattern = r"^\s*(\S+)\s+([\d.]+)\s+([\d.]+)\s+([\d]+)\s+([\d]+)"
 
@@ -24,9 +23,14 @@ def list_to_csv(input_file):
             match = re.match(pattern, line)
             if match:
                 assignment, w1, w2, data_height, sn = match.groups()
-                rows.append([assignment[:-3], float(w1), float(w2), int(data_height), int(sn),assignment])
+                rows.append([assignment.split("_")[0], float(w1), float(w2), int(data_height), int(sn),assignment])
 
     with open(output_file, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(["ID", "w1", "w2", "Data Height", "S/N", "Assignment"])
         writer.writerows(rows)
+
+if __name__ == "__main__":
+    path = "path_to_list"
+    list_to_csv(path)
+    
